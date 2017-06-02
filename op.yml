@@ -1,0 +1,40 @@
+name: github.com/opspec-pkgs/azure.functionapp.create
+description: creates an azure function app (if doesn't already exist)
+inputs:
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  azureUsername:
+    string:
+      constraints: { format: email }
+      description: email address of azure account
+  azurePassword:
+    string:
+      constraints: { minLength: 1 }
+      description: password of azure account
+      isSecret: true
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of provisioned function app
+  resourceGroup:
+    string:
+      constraints: { minLength: 1 }
+      description: name of azure resource group
+  storageAccount:
+    string:
+      constraints: { minLenght: 1}
+      description: storage account (name or id) used by function app
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh }
+    envVars:
+      subscriptionId:
+      azureUsername:
+      azurePassword:
+      name:
+      resourceGroup:
+      storageAccount:
