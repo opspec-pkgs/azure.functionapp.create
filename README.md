@@ -29,6 +29,6 @@ run:
       azurePassword: ~
       name: ~
       resourceGroup: ~
-      name: ~
+      storageAccount: ~
 ```
 

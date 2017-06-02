@@ -24,7 +24,7 @@ inputs:
       description: name of azure resource group
   storageAccount:
     string:
-      constraints: { minLenght: 1}
+      constraints: { minLength: 1}
       description: storage account (name or id) used by function app
 run:
   container:
