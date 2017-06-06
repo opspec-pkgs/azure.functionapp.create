@@ -30,5 +30,6 @@ run:
       name: ~
       resourceGroup: ~
       storageAccount: ~
+      consumptionPlanLocation: ~
 ```
 
