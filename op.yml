@@ -26,6 +26,11 @@ inputs:
     string:
       constraints: { minLength: 1}
       description: storage account (name or id) used by function app
+  consumptionPlanLocation:
+    string:
+      constraints: { minLength: 1}
+      description: geographic location where Function App will be hosted.
+      default: westus
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
@@ -38,3 +43,4 @@ run:
       name:
       resourceGroup:
       storageAccount:
+      consumptionPlanLocation: 

@@ -16,5 +16,6 @@ else
   az functionapp create \
     --name "$name" \
     --resource-group "$resourceGroup" \
-    --storage-account "$storageAccount"
+    --storage-account "$storageAccount" \
+    --consumption-plan-location "$consumptionPlanLocation"
 fi
