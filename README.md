@@ -1,5 +1,5 @@
 # problem statement
-creates an azure function app (if doesn't already exist)
+creates an azure function app (if doesn't already exist) using a consumption plan pricing tier.
 
 # example usage
 
