@@ -7,7 +7,7 @@ echo "setting default subscription"
 az account set --subscription "$subscriptionId"
 
 echo "checking for exiting function app"
-if [ "$(az functionapp show --name "$name"--resource-group "$resourceGroup")" != "" ]
+if [ "$(az functionapp show --name "$name" --resource-group "$resourceGroup")" != "" ]
 then
   echo "found exiting function app"
 else
