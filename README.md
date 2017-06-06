@@ -24,12 +24,12 @@ run:
   op:
     pkg: { ref: github.com/opspec-pkgs/azure.functionapp.create#VERSION }
     inputs: 
-      subscriptionId: ~
-      azureUsername: ~
-      azurePassword: ~
-      name: ~
-      resourceGroup: ~
-      storageAccount: ~
-      consumptionPlanLocation: ~
+      subscriptionId:
+      azureUsername:
+      azurePassword:
+      name:
+      resourceGroup:
+      storageAccount:
+      consumptionPlanLocation:
 ```
 
