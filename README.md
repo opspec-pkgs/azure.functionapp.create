@@ -1,5 +1,5 @@
 # problem statement
-creates an azure function app (if doesn't already exist) using a consumption plan pricing tier.
+creates an azure function app (if doesn't already exist)
 
 # example usage
 
@@ -25,11 +25,19 @@ run:
     pkg: { ref: github.com/opspec-pkgs/azure.functionapp.create#VERSION }
     inputs: 
       subscriptionId:
-      azureUsername:
-      azurePassword:
+      loginId:
+      loginSecret:
       name:
       resourceGroup:
       storageAccount:
+      # begin optional args
+      appServicePlan:
       consumptionPlanLocation:
+      deploymentSourceBranch:
+      deploymentSourceUrl:
+      isLocalGitEnabled:
+      loginTenantId:
+      loginType:
+      # end optional args
 ```
 

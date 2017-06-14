@@ -5,15 +5,14 @@ inputs:
     string:
       constraints: { minLength: 1 }
       description: id of azure subscription
-  azureUsername:
-    string:
-      constraints: { format: email }
-      description: email address of azure account
-  azurePassword:
+  loginId:
     string:
       constraints: { minLength: 1 }
-      description: password of azure account
-      isSecret: true
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
   name:
     string:
       constraints: { minLength: 1 }
@@ -26,11 +25,41 @@ inputs:
     string:
       constraints: { minLength: 1}
       description: storage account (name or id) used by function app
+  appServicePlan:
+    string:
+      constraints: { minLength: 1 }
+      description: app service plan (name or id) for the provisioned function app
+      default: " "
   consumptionPlanLocation:
     string:
       constraints: { minLength: 1}
-      description: geographic location where Function App will be hosted.
+      description: location of consumption plan for provisioned function app. Ignored if appServicePlan specified
       default: westus
+  deploymentSourceBranch:
+    string:
+      constraints: { minLength: 1 }
+      description: git repo branch deployments will pull from for provisioned function app
+      default: master
+  deploymentSourceUrl:
+    string:
+      constraints: { minLength: 1 }
+      description: git repo url deployments will pull from for provisioned function app
+      default: " "
+  isLocalGitEnabled:
+    string:
+      constraints: { enum: ['true', 'false']}
+      description: if local git is enabled for provisioned function app
+      default: 'false'
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: " "
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
 run:
   container:
     image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
@@ -38,9 +67,15 @@ run:
     files: { /cmd.sh }
     envVars:
       subscriptionId:
-      azureUsername:
-      azurePassword:
+      loginId:
+      loginSecret:
       name:
       resourceGroup:
       storageAccount:
-      consumptionPlanLocation: 
+      appServicePlan:
+      consumptionPlanLocation:
+      deploymentSourceBranch:
+      deploymentSourceUrl:
+      isLocalGitEnabled:
+      loginTenantId:
+      loginType:
