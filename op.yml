@@ -13,6 +13,7 @@ inputs:
     string:
       constraints: { minLength: 1 }
       description: secret of user, service principal, or app to login with
+      isSecret: true
   name:
     string:
       constraints: { minLength: 1 }
