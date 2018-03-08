@@ -61,9 +61,10 @@ inputs:
       constraints: { enum: [user, sp]}
       description: type of login; 'user' (default) or 'sp' for service principal
       default: user
+version: 2.1.0
 run:
   container:
-    image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
+    image: { ref: 'azuresdk/azure-cli-python:2.0.25' }
     cmd: [ /cmd.sh ]
     files: { /cmd.sh }
     envVars:
